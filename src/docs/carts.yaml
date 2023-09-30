@@ -1,0 +1,60 @@
+paths:
+  /api/carts:
+    get:
+      summary: Obtiene todos los carritos del usuario
+      tags:
+        - Carts
+      responses:
+        "200":
+          description: "Los carritos del usuario fueron obtenidos satisfactoriamente"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cart'
+
+  /api/carts/{cId}:
+    get:
+      summary: Obtiene un carrito basado en su CID.
+      tags:
+        - Carts
+      parameters:
+        - name: cId
+          in: path
+          description: ID único del carrito.
+          required: true
+          schema:
+            type: string
+            format: ObjectId
+      responses:
+        "200":
+          description: "El carrito fue obtenido satisfactoriamente"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+        "404":
+          description: "Carrito no encontrado"
+
+components:
+  schemas:
+    Cart:
+      type: object
+      properties:
+        ID:
+          type: string
+          format: ObjectId
+          description: ID del carrito
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              _id:
+                type: string
+                format: ObjectId
+                description: ID del producto
+              quantity:
+                type: number
+                description: Cantidad del producto en el carrito

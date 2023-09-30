@@ -1,0 +1,136 @@
+[
+	{
+		"title": "LAVARROPA",
+		"description": "Lavarropa Drean",
+		"price": 49500,
+		"thumbnail": "https://www.rollingstone.com/wp-content/uploads/2020/04/shutterstock_777733171.jpg?w=1581&h=1054&crop=1",
+		"code": 102,
+		"stock": 28,
+		"id": 2
+	},
+	{
+		"title": "Exprimidora",
+		"description": "Exprimidora Cocina",
+		"price": 4500,
+		"thumbnail": "https://www.rollingstone.com/wp-content/uploads/2020/04/shutterstock_777733171.jpg?w=1581&h=1054&crop=1",
+		"code": 103,
+		"stock": 728,
+		"id": 3
+	},
+	{
+		"title": "Jueguera",
+		"description": "Juguera chica",
+		"price": 14500,
+		"thumbnail": "https://www.rollingstone.com/wp-content/uploads/2020/04/shutterstock_777733171.jpg?w=1581&h=1054&crop=1",
+		"code": 104,
+		"stock": 758,
+		"id": 4
+	},
+	{
+		"title": "Batidora",
+		"description": "Batidora Cocina",
+		"price": 45400,
+		"thumbnail": "https://www.rollingstone.com/wp-content/uploads/2020/04/shutterstock_777733171.jpg?w=1581&h=1054&crop=1",
+		"code": 105,
+		"stock": 768,
+		"id": 5
+	},
+	{
+		"title": "Lavavajillas",
+		"description": "Lavavajillas Cocina",
+		"price": 47500,
+		"thumbnail": "https://www.rollingstone.com/wp-content/uploads/2020/04/shutterstock_777733171.jpg?w=1581&h=1054&crop=1",
+		"code": 106,
+		"stock": 785,
+		"id": 6
+	},
+	{
+		"title": "Secador Pelo",
+		"description": "Secador de pelo",
+		"price": 45080,
+		"thumbnail": "https://www.rollingstone.com/wp-content/uploads/2020/04/shutterstock_777733171.jpg?w=1581&h=1054&crop=1",
+		"code": 107,
+		"stock": 728,
+		"id": 7
+	},
+	{
+		"title": "Tv Full Led",
+		"description": "Tv full Sony",
+		"price": 47500,
+		"thumbnail": "https://www.rollingstone.com/wp-content/uploads/2020/04/shutterstock_777733171.jpg?w=1581&h=1054&crop=1",
+		"code": 108,
+		"stock": 738,
+		"id": 8
+	},
+	{
+		"title": "Secadora",
+		"description": "Secadora ropa",
+		"price": 45500,
+		"thumbnail": "https://www.rollingstone.com/wp-content/uploads/2020/04/shutterstock_777733171.jpg?w=1581&h=1054&crop=1",
+		"code": 109,
+		"stock": 778,
+		"id": 9
+	},
+	{
+		"title": "Mapeadora",
+		"description": "Trapo limpieza",
+		"price": 45200,
+		"thumbnail": "https://www.rollingstone.com/wp-content/uploads/2020/04/shutterstock_777733171.jpg?w=1581&h=1054&crop=1",
+		"code": 110,
+		"stock": 478,
+		"id": 10
+	},
+	{
+		"title": "Mapeadora",
+		"description": "Trapo limpieza",
+		"price": 45200,
+		"thumbnail": "https://www.rollingstone.com/wp-content/uploads/2020/04/shutterstock_777733171.jpg?w=1581&h=1054&crop=1",
+		"code": 110,
+		"stock": 478,
+		"id": 10
+	},
+	{
+		"title": "Hidro Lavadora Profesional",
+		"description": "Marca Profesional Gama",
+		"price": "1700",
+		"thumbnail": "https://www.rollingstone.com/wp-content/uploads/2020/04/shutterstock_777733171.jpg?w=1581&h=1054&crop=1",
+		"code": 1103,
+		"stock": 478,
+		"category": "map.pjg",
+		"status": "true",
+		"id": 11
+	},
+	{
+		"title": "Desmalezadora",
+		"description": "Stihl Fs220",
+		"price": 150000,
+		"thumbnail": "https://www.rollingstone.com/wp-content/uploads/2020/04/shutterstock_777733171.jpg?w=1581&h=1054&crop=1",
+		"code": 145,
+		"stock": 28,
+		"category": "Profesional    ",
+		"status": "true",
+		"id": 12
+	},
+	{
+		"title": "Desmalezadora Stihl",
+		"description": "Stihl Fs280",
+		"price": 150000,
+		"thumbnail": [],
+		"code": 146,
+		"stock": 28,
+		"category": "Profesional",
+		"status": "true",
+		"id": 13
+	},
+	{
+		"title": "Motosierra",
+		"description": "Stihl Ms250",
+		"price": 250000,
+		"thumbnail": [],
+		"code": 162,
+		"stock": "621",
+		"category": "Profesional",
+		"status": "true",
+		"id": 14
+	}
+]

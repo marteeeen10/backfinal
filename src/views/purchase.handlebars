@@ -1,0 +1,52 @@
+<div id="cartContainer">
+  <div class="principal">
+  <div class="revisar">
+    <p>Un pasito mas...</p>
+  </div>
+  <div id="productContainer">
+    <div class="carritoSeparado">
+      <p class="cart" data-cart-id="{{carts._id}}">Carrito : {{carts._id}}</p>
+     <div class="separate">
+        <div class="ticket"> 
+            <div class="parteInfo">
+                <p class="userName" data-user-id={{user.email}}>Nombre:  {{user.name}} </p>
+                <p>Email:  {{user.email}}</p>
+                <p>Direccion:  Av. Siempre viva 123</p>
+            </div>
+            <div class="parteProductos" data-products={{carts.products}}>
+            <div class="parteProductosContenido">
+                <p class="tituloPedido">Pedido:</p>
+            {{#each carts.products}}
+            <div class="productos">
+                <div class="pTitle">
+                  <p >{{product.title}}</p>
+                </div>
+                <div class="pq">
+                    <p >Cantidad : {{quantity}} </p>
+                </div>
+                <div class="pq">
+                    <p >Subtotal</p>
+                </div>
+                <div class="pq">
+                    <p >$ {{subtotal}}</p>
+                </div>
+            </div>
+           {{/each}}
+        </div>
+                
+        </div>
+        <div class="parteTotal">
+           <p class="montoTotal"data-total={{total}}>Total Pesos Argentinos:  $ {{total}}</p>
+        </div>
+     </div>
+    
+    </div>
+     <div class="total">
+       <button id="finalizarCompraBtn" >ENVIAR TICKET</button></a>
+     </div>
+  </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/logout.js"></script>
+<script src="/js/ticket.js"></script>
