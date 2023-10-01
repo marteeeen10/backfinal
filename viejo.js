@@ -3,9 +3,7 @@ import { userService } from "../services/index.js";
 import restoreTokenDTO from "../dtos/user/restoreTokenDTO.js";
 import mailService from "../services/mailingService.js";
 import DTemplates from "../constants/DTemplates.js";
-//import jwt, { verify } from "jsonwebtoken";
-import pkg from 'jsonwebtoken';
-const { verify } = pkg;
+import jwt, { verify } from "jsonwebtoken";
 
 const registerPost = async (req, res) => {
   const mailingService = new mailService();

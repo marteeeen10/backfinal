@@ -1,9 +1,14 @@
 import { cartService, productService } from "../services/index.js";
 import productModel from "../dao/mongo/models/products.js";
 import { pid } from "process";
+import { generateProducts } from "../mocks/products.mocks.js";
+
 import ErrorService from "../services/errorService.js";
 import { productErrorIncompleteValues } from "../constants/productsErrors.js";
 import Errors from "../constants/errors.js";
+import mailService from "../services/mailingService.js";
+import { log } from "console";
+import DTemplates from "../constants/DTemplates.js";
 
 const getProducts = async (req, res) => {
   const { page = 1 } = req.query;
@@ -34,21 +39,20 @@ const postProduct = async (req, res) => {
   const {
     title,
     description,
-    thumbnail,
+    thumbnail = [],
     code,
     price,
-    status,
+    status = true,
     category,
     stock,
+    owner,
   } = req.body;
 
   if (
     !title ||
     !description ||
-    !thumbnail ||
     !code ||
     !price ||
-    !status ||
     !stock ||
     !category
   ){
@@ -73,13 +77,14 @@ const postProduct = async (req, res) => {
     stock,
     status,
     category,
+    owner: req.user.role == "admin" ? "admin" : req.user.email,
   };
 
   const result = await productService.createProductService(product);
   const products = await productService.getProductsService();
   req.io.emit("updateProducts", products);
 
-  res.sendStatus(201);
+  res.send({ status: "success" });
 };
 
 const getProductsById = async (req, res) => {
@@ -102,24 +107,54 @@ const putProduct = async (req, res) => {
 
 const deleteProduct = async (req, res) => {
   const { pid } = req.params;
+  
+  try {
+    const products = await productService.getProductsByIdService({ _id: pid });
+
+    if (products.owner) {
+      const mailingService = new mailService();
+      const result = await mailingService.sendMail(
+        products.owner,
+        DTemplates.PRODUCTOELIMINADO,
+        { user: req.user }
+      );
+      console.log(result);
+    }
 
   await productService.deleteProductService(pid);
-  const products = await productService.getProductsService();
+
   req.io.emit("updateProducts", products);
 
-  res.sendStatus(410);
+  res.send({ status: "success", message: "Product deleted" });
+} catch (error) {
+  console.error(error);
+  res
+    .status(500)
+    .send({ status: "error", message: "Error deleting product" });
+}
 };
 
 const addProduct = async (req, res) => {
   try {
     const pId = req.body.productId;
     const cId = req.user.cart;
+    const comprador = req.user.email;
+    const products = await productService.getProductsService();
+    const selected = products.filter((prod) => prod._id == pId);
+    if (comprador == selected[0].owner) {
+      console.log();
+      res.send({
+        status: "error",
+        message: `no puedes agregar este producto `,
+      });
+    } else {
     const result = await cartService.addProductToCartService(pId, cId);
     res.send({
       status: "success",
       message: `llego el id del producto ${pId} `,
       payload: result,
     });
+  }
   } catch (error) {
     console.log(error);
   }

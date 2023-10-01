@@ -33,6 +33,7 @@ export default class CartService {
         if (!cart) {
           throw new Error("Cart not found");
   }
+  
   // Eliminar los productos del carrito
   cart.products = [];
 

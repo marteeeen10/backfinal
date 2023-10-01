@@ -21,9 +21,11 @@ export default class CartsManager {
       if (!cart) {
         throw new Error("Carrito no encontrado!!!");
       }
+
       const existingProductIndex = cart.products.findIndex(
         (product) => product.product._id.toString() === pid
         );
+
       if (existingProductIndex !== -1) {
         if (quantity) {
           cart.products[existingProductIndex].quantity = quantity;
@@ -37,7 +39,9 @@ export default class CartsManager {
         cart.products.push({ product: pid, quantity: 1 });
       }
       }
+
       cart = await cart.save();
+
       return cart;
     } catch (error) {
       throw new Error(error.message);
@@ -46,18 +50,23 @@ export default class CartsManager {
   deleteProductToCart = async (cid, pid) => {
     try {
       let cart = await cartsModel.findById(cid);
+
       if (!cart) {
         throw new Error("Carrito no encontrado");
       }
+
       const existingProductIndex = cart.products.findIndex(
         (product) => product.product._id.toString() === pid
       );
+
       if (existingProductIndex !== -1) {
         cart.products.splice(existingProductIndex, 1);
       } else {
         throw new Error("producto no encontrado");
       }
+
       cart = await cart.save();
+      
       return cart;
     } catch (error) {
       throw new Error(error.message);
@@ -107,7 +116,6 @@ export default class CartsManager {
     try {
       const cartToUpdate = await cartsModel.findById(cid);
       for (const { product, quantity } of cartToUpdate.products) {
-        console.log(product, quantity);
         const productSelected = await productModel.findById(product);
         if (!productSelected) {
           throw new Error(`Product not found with ID: ${product}`);

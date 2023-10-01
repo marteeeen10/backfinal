@@ -20,14 +20,28 @@ import mockingRouter from "./routes/mocking.router.js";
 import errorHandler from "./middlewares/error.js";
 import attachLogger from "./middlewares/logger.js";
 import loggerRouter from "./routes/logger.router.js";
-import swaggerJSDoc from 'swagger-jsdoc';
-import swaggerUiExpress from 'swagger-ui-express'
-
+import usersRouter from "./routes/users.mongo.router.js";
+import swaggerJSDoc from "swagger-jsdoc";
+import swaggerUiExpress from "swagger-ui-express";
 const app = express();
 
 app.use(attachLogger);
 const url = config.mongoUrl;
 const connection = mongoose.connect(url);
+
+const swaggerOptions = {
+  definition: {
+      openapi: "3.0.1",
+      info: {
+          title:"Ferreteria",
+          description: "Documentation API",
+      },
+  },
+  apis: [`${__dirname}/docs/**/*.yaml`],
+};
+const specs = swaggerJSDoc(swaggerOptions);
+app.use("/docs", swaggerUiExpress.serve, swaggerUiExpress.setup(specs));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(`${__dirname}/public`));
@@ -46,26 +60,12 @@ const PORT = config.port || 8080;
 const server = app.listen(PORT, () => console.log("escuchando en puerto.."))
 const io = new Server(server);
 
-// SWAGGER
-const swaggerOptions = {
-  definition: {
-      openapi: '3.0.1',
-      info:{
-          title:'Ferreteria',
-          description: 'Documentation API'
-      }
-  },
-  apis: [`${__dirname}/docs/**/*.yaml`]
-}
-
-const specs = swaggerJSDoc(swaggerOptions)
-app.use('/docs', swaggerUiExpress.serve, swaggerUiExpress.setup(specs))
-
 app.use("/", loggerRouter);
 app.use("/api/products", ProductsRouter);
 app.use("/api/carts", CartsRouter);
 app.use("/api/tickets", TicketRouter);
 app.use("/api/sessions", sessionRouter);
+app.use("/api/users", usersRouter);
 app.use("/api/mockingproducts", mockingRouter);
 app.use("/", viewsRouter);
 app.use(errorHandler);

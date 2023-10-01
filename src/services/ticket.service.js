@@ -6,7 +6,7 @@ export default class TicketService {
       return this.dao.getTickets();
     };
     getTicketsByIdService = (tid) => {
-      return this.dao.getTicketsById(tid);
+      return this.dao.getTicketsById();
     };
     createTicketsService = (ticket) => {
       return this.dao.createTickets(ticket);

@@ -15,9 +15,11 @@ export default class ProductService {
       return this.dao.updateUsers(id, user);
     };
     updateOneService = (param, elem) => {
+      console.log(param, elem);
       return this.dao.updateOne(param, elem);
     };
     deleteUsersService = (id) => {
-      return this.dao.updateOne(id);
+      return this.dao.deleteUsers(id);
     };
   }
+  

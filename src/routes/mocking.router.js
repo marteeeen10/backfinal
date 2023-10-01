@@ -8,7 +8,7 @@ export default router;
 router.get("/", (req, res) => {
   //endpoint devolvera 100 productos
   const products = [];
-  //console.log(products);
+  console.log(products);
   try {
     for (let i = 0; i < 100; i++) {
       products.push(generateProducts());

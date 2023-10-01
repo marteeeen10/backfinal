@@ -13,13 +13,28 @@ const cartManager = new CartsManager();
 const LocalStrategy = local.Strategy;
 
 const initializePassportStrategies = () => {
+  function isValidEmail(email) {
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailRegex.test(email);
+  }
+
   passport.use(
     "register",
     new LocalStrategy(
       { passReqToCallback: true, usernameField: "email" },
       async (req, email, password, done) => {
         try {
-          const { first_name, last_name } = req.body;
+          const { first_name, last_name, role } = req.body;
+          if (!isValidEmail(email)) {
+            return done(null, false, { message: "Email no válido" });
+          }
+
+          // Validar la contraseña
+          if (password.length < 6) {
+            return done(null, false, {
+              message: "La contraseña debe tener al menos 6 caracteres",
+            });
+          }
           //Número 1! Corrobora si el usuario ya existe.
           const exists = await userManager.getUsersBy({ email });
           //done lo que quiere hacer es DEVOLVERTE un usuario en req.user;
@@ -35,6 +50,7 @@ const initializePassportStrategies = () => {
             email,
             password: hashedPassword,
             cart: cart._id,
+            role,
           };
           const result = await userManager.createUsers(user);
           // Si todo salió bien, Ahí es cuando done debe finalizar bien.
@@ -77,13 +93,7 @@ const initializePassportStrategies = () => {
         //Número 3!!! ¿El usuario existe y SÍ PUSO SU CONTRASEÑA CORRECTA? Como estoy en passport, sólo devuelvo al usuario
 
         user = new UserDTO(user);
-/*         user = {
-          id: user._id,
-          name: `${user.first_name} ${user.last_name}`,
-          email: user.email,
-          role: user.role,
-          cart: user.cart._id,
-        }; */
+
         return done(null, user);
       }
     )
