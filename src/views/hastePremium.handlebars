@@ -1,0 +1,24 @@
+<h1>Hacerte Premium!</h1>
+{{#if user}}
+  <div class="saludo">
+    <h1>Hola {{user.name}} ! </h1>
+    <p>Rol: {{user.role}}</p>
+  </div>
+  <div class="logoutContainer">
+    <button id="loguotButton">Logout</button>
+  </div>
+
+{{/if}}
+<div class="premiumContainer">
+
+  <div class="premiumDiv">
+
+      <button onclick="premiumHandler('premium')">Perfil Premium</button>
+
+      <button onclick="premiumHandler('usuario')">Perfil usuario</button>
+
+  </div>
+
+<script src="/js/logout.js"></script>
+<script src="/js/premiumHandler.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
