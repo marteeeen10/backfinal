@@ -1,7 +1,33 @@
+<nav class="navBar">
+  <ul>
+    <div class="Logo">
+      <a href="/"> <p>PARQUE DE MAQUINARIAS</p></a>
+    </div>
+
+    <div class="divsSing">
+      <div class="enlaces">
+        <ul>
+          <a href="/products"><li>PRODUCTOS</li></a>
+         <a href="/manager"><li>MANAGER</li></a>
+        <a  href="/premium"><li>HACETE PREMIUM</li></a>
+        </ul>
+      </div>
+      <div>
+        <a href="/cart"><li>CART</li></a>
+      </div>
+      <div class="logoutContainer">
+        <button id="loguotButton">Logout</button>
+      </div>
+
+    </div>
+
+  </ul>
+</nav>
+
 <div id="cartContainer">
   <div class="principal">
   <div class="revisar">
-    <p>Un pasito mas...</p>
+    <p>Ya falta poco para finalizar!!</p>
   </div>
   <div id="productContainer">
     <div class="carritoSeparado">
@@ -11,7 +37,7 @@
             <div class="parteInfo">
                 <p class="userName" data-user-id={{user.email}}>Nombre:  {{user.name}} </p>
                 <p>Email:  {{user.email}}</p>
-                <p>Direccion:  Av. Siempre viva 123</p>
+                <p>Direccion:  Av. Siempre Viva 123</p>
             </div>
             <div class="parteProductos" data-products={{carts.products}}>
             <div class="parteProductosContenido">
@@ -22,10 +48,10 @@
                   <p >{{product.title}}</p>
                 </div>
                 <div class="pq">
-                    <p >Cantidad : {{quantity}} </p>
+                    <p >X : {{quantity}} </p>
                 </div>
                 <div class="pq">
-                    <p >Subtotal</p>
+                    <p >subtotal</p>
                 </div>
                 <div class="pq">
                     <p >$ {{subtotal}}</p>
@@ -36,7 +62,7 @@
                 
         </div>
         <div class="parteTotal">
-           <p class="montoTotal"data-total={{total}}>Total Pesos Argentinos:  $ {{total}}</p>
+           <p class="montoTotal"data-total={{total}}>Total:  $ {{total}}</p>
         </div>
      </div>
     

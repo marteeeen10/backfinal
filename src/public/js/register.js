@@ -31,7 +31,7 @@ form.addEventListener("submit", async (event) => {
       showConfirmButton: false,
       timer: 4000,
       title: `ERROR`,
-      text: "algo salio mal en el registro verifica que el email contenga @ y . y el password mas de 6 caracteres",
+      text: "algo salio mal en el registro..",
       icon: "error",
     });
   }

@@ -1,21 +1,40 @@
-<h1>Hacerte Premium!</h1>
-{{#if user}}
-  <div class="saludo">
-    <h1>Hola {{user.name}} ! </h1>
-    <p>Rol: {{user.role}}</p>
-  </div>
-  <div class="logoutContainer">
-    <button id="loguotButton">Logout</button>
-  </div>
+<nav class="navBar">
+  <ul>
+    <div class="Logo">
+      <a href="/"> <p>PARQUE DE MAQUINARIAS</p></a>
+    </div>
 
-{{/if}}
+    <div class="divsSing">
+      <div class="enlaces">
+        <ul>
+          <a href="/products"><li>PRODUCTOS</li></a>
+
+          <a href="/manager"><li>MANAGER</li></a>
+          <a
+            href="/premium"
+          ><li>HACETE PREMIUM</li></a>
+
+        </ul>
+      </div>
+      <div>
+        <a href="/cart"><li>CART</li></a>
+      </div>
+      <div class="logoutContainer">
+        <button id="loguotButton">Logout</button>
+      </div>
+
+    </div>
+
+  </ul>
+</nav>
 <div class="premiumContainer">
 
+  <h1>Seleccionar Perfil</h1>
   <div class="premiumDiv">
 
-      <button onclick="premiumHandler('premium')">Perfil Premium</button>
+      <button onclick="premiumHandler('premium')">perfil Premium</button>
 
-      <button onclick="premiumHandler('usuario')">Perfil usuario</button>
+      <button onclick="premiumHandler('usuario')">perfil usuario</button>
 
   </div>
 

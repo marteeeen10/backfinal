@@ -1,5 +1,34 @@
+<nav class="navBar">
+  <ul>
+    <div class="Logo">
+      <a href="/"> <p>PARQUE DE MAQUINARIAS</p></a>
+    </div>
+
+    <div class="divsSing">
+      <div class="enlaces">
+        <ul>
+          <a href="/products"><li>PRODUCTOS</li></a>
+          <a href="/manager"><li>MANAGER</li></a>
+          <a href="/premium"><li>HACETE PREMIUM</li></a>
+        </ul>
+      </div>
+      <div>
+        <a href="/cart"><li>CART</li></a>
+      </div>
+      <div class="logoutContainer">
+        <button id="loguotButton">Logout</button>
+      </div>
+
+    </div>
+
+  </ul>
+</nav>
+
 <div id="cartContainer">
   <div class="principal">
+    <div class="revisar">
+      <p>Agrega productos a tu compra!!</p>
+    </div>
     <div id="productContainer">
       <div class="carritoSeparado">
         <p class="cart" data-cart-id="{{carts._id}}">Carrito : {{carts._id}}</p>
@@ -53,6 +82,7 @@
     </div>
   </div>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/js/logout.js"></script>
 <script src="/js/contador.js"></script>
+<script src="/js/logout.js"></script>

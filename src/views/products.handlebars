@@ -1,11 +1,33 @@
+<nav class="navBar">
+  <ul>
+    <a href="/"><div class="Logo">
+        <a href="/"> <p>PARQUE DE MAQUINARIAS</p></a>
+      </div></a>
+
+    <div class="divsSing">
+      <div class="enlaces">
+        <ul>
+          <a href="/products"><li>PRODUCTOS</li></a>
+          <a href="/manager"><li>MANAGER</li></a>
+          <a  href="/premium"><li>HACETE PREMIUM</li></a>
+        </ul>
+      </div>
+      <div>
+        <a href="/cart"><li>CART</li></a>
+      </div>
+      <div class="logoutContainer">
+        <button id="loguotButton">Logout</button>
+      </div>
+
+    </div>
+
+  </ul>
+</nav>
 <h1>Products</h1>
 {{#if user}}
   <div class="saludo">
     <h1>Hola {{user.name}} ! </h1>
     <p>Rol: {{user.role}}</p>
-  </div>
-  <div class="logoutContainer">
-    <button id="loguotButton">Logout</button>
   </div>
 
 {{/if}}

@@ -1,83 +1,139 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-  }
-  body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: lightseagreen;
-  }
-  #cartContainer {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  #cartContainer h1 {
-    color: black;
-    margin-top: 40px;
-    margin-bottom: 60px;
-  }
-  
-  #cardCart {
-    width: 80vw;
-    height: 80px;
-    border: 3px solid black;
-    border-radius: 20px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    color: black;
-    display: flex;
-    font-size: 20px;
-    align-items: center;
-    margin-bottom: 30px;
-  }
-  #cardCart div {
-    display: flex;
-    align-items: center;
-  }
-  #cardCart p {
-    margin-right: 20px;
-  }
-  #cardCart img {
-    width: 50px;
-  }
-  .carritoSeparado {
-    border: 2px solid black;
-    border-radius: 10px;
-    margin-top: 30px;
-    -webkit-box-shadow: 1px 3px 19px -3px #000000;
-    box-shadow: 1px 3px 19px -3px #000000;
-    padding: 10px;
-  }
-  .carritoSeparado p {
-    font-size: 20px;
-    color: black;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  .logoutContainer {
-    position: absolute;
-    top: 85px;
-    right: 20px;
-    font-size: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .logoutContainer button {
-    background-color: transparent;
-    border: 2px solid black;
-    width: 100px;
-    height: 30px;
-    border-radius: 40px;
-    color: black;
-    margin-top: 20px;
-    cursor: pointer;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: lightseagreen;
+  overflow-x: hidden;
+}
+#cartContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+#cartContainer h1 {
+  color: black;
+  margin-top: 80px;
+  margin-bottom: 60px;
+}
+.separate {
+  height: 85%;
+  overflow-y: scroll;
+}
+.principal {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+}
+.revisar {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+.revisar p {
+  font-size: 50px;
+  width: 50%;
+  text-align: center;
+  letter-spacing: 5px;
+}
+.revisar img {
+  width: 100%;
+  height: 100%;
+}
+#productContainer {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#cardCart {
+  width: 100%;
+  height: 60px;
+  border: 3px solid black;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  color: black;
+  display: flex;
+  font-size: 20px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+#cardCart div {
+  width: 12.5%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#cardCart p {
+  margin-right: 20px;
+}
+#cardCart img {
+  width: 30px;
+}
+.carritoSeparado {
+  width: 100%;
+  height: calc(100% - 60px);
+  margin-top: 60px;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  overflow: hidden;
+}
+.carritoSeparado p {
+  font-size: 18px;
+  color: black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.total {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.subtotal {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.subtotal p {
+  margin: 0;
+}
+.logoutContainer {
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.logoutContainer button {
+  background-color: transparent;
+  border: 2px solid black;
+  width: 100px;
+  height: 30px;
+  border-radius: 40px;
+  color: black;
+  cursor: pointer;
+}
+button {
+  margin-top: 10px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 15px;
+  border: 2px solid black !important;
+  background-color: lightseagreen;
+  color: black;
+  cursor: pointer;
+}
