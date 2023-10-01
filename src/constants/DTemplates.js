@@ -1,5 +1,5 @@
 export default {
-    HOLA: "hola",
+    HOLA: "hhola",
     RESTORE: "restore",
     PRODUCTOELIMINADO: "productoEliminado",
     CONFIRMACIONCOMPRA: "confirmacionCompra",
