@@ -1,8 +1,8 @@
 import userModel from "../models/user.js";
 
 export default class UserManager {
-  getUsers = async () => {
-    return userModel.find().lean();
+  getUsers = async (param) => {
+    return userModel.find(param).lean();
   };
 
   getUsersBy = (params) => {

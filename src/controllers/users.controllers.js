@@ -1,5 +1,13 @@
 import { userService } from "../services/index.js";
 
+const getUsers = async (req, res) => {
+  try {
+    const users = await userService.getUsersService();
+    res.status(200).send({ status: "success", payload: users });
+  } catch (error) {
+    res.status(500).send({ status: "error", error: 'Error interno del servidor' });
+  }
+}
 const upDateUser = async (req, res) => {
   console.log(req.user);
   const role = req.body;
@@ -110,6 +118,7 @@ const modifyRoleUser = async (req, res) => {
 };
 
 export default {
+  getUsers,
   upDateUser,
   updateUserData,
   deleteUser,
